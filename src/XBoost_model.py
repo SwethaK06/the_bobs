@@ -15,7 +15,7 @@ from sklearn.model_selection import RandomizedSearchCV
 # ======================
 # LOAD DATA
 # ======================
-df = pd.read_csv(r"C:\Users\sweth\Desktop\Y3S1\AI Solutions Development\Project\SD_project\data\cleaned_gas_monitoring2.0.csv")
+df = pd.read_csv(r"C:\Users\sweth\Desktop\Y3S1\AI Solutions Development\Project\SD_project\notebooks\cleaned_gas_monitoring.csv")
 
 # ======================
 # FEATURES & TARGET
