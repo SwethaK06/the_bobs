@@ -5,7 +5,7 @@ def clean_data():
     
     # Load the Database
     print("Loading data from SQLite database...")
-    conn = sqlite3.connect(r"C:\Users\sweth\Desktop\Y3S1\AI Solutions Development\Project\Swetha_Backup\data\gas_monitoring.db")
+    conn = sqlite3.connect("data/gas_monitoring.db")
 
     df = pd.read_sql_query(
         "SELECT * FROM gas_monitoring",
@@ -139,7 +139,6 @@ def clean_data():
     
     return df
 
-# if __name__ == "__main__":
-#     clean_data()
+if __name__ == "__main__":
+    clean_data()
 
-clean_data()
