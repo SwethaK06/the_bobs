@@ -1,2 +1,8 @@
-*.pkl
 outputs/
+*.pkl
+__pycache__/
+.ipynb_checkpoints/
+
+__pycache__/
+*.pyc
+catboost_info/

@@ -16,17 +16,14 @@ def main():
 
     results = []
 
-    
-    results.append(train_catboost(df))
-    results.append(train_xgboost(df))
-    results.append(train_decision_tree(df))
-    results.append(train_gradient_boosting(df))
-    results.append(train_random_forest(df))
-    results.append(train_knn(df))
-
-    # for result in results:
-    #     print(result["Model"])
-    #     print(result["Accuracy"])
+    # Train and evaluate each model, storing results for comparison
+    results.append(train_catboost(df)) # Trains the catboost model and saves the outputs in results
+    results.append(train_xgboost(df)) # Trains XGBoost model and saves the outputs in results
+    results.append(train_decision_tree(df)) # Trains the decision tree model and saves the outputs in results
+    results.append(train_gradient_boosting(df)) # Trains the gradient boost model and saves the outputs in results
+    results.append(train_random_forest(df)) # Trains the random forest model and saves the outputs in results
+    results.append(train_knn(df)) # Trains the KNN model and saves the outputs in results
+ 
     
     # Create comparison table
     comparison_df = pd.DataFrame([
@@ -46,11 +43,13 @@ def main():
         ascending=False
     )
     
+    # Create outputs directory if it doesn't exist
     os.makedirs(
         "outputs",
         exist_ok=True
     )
-
+    
+    # Save model comparison results to CSV
     comparison_df.to_csv(
         "outputs/model_comparison.csv",
         index=False
@@ -62,7 +61,8 @@ def main():
 
     # Best model
     best_model = comparison_df.iloc[0]
-
+    
+    # Display best model information
     print("\nBEST MODEL")
     print("=" * 50)
     print(f"Model    : {best_model['Model']}")
@@ -72,7 +72,8 @@ def main():
     print(f"F1 Score : {best_model['F1']:.4f}")
     
     print("\nModel rankings:")
-
+    
+    # Print model rankings based on accuracy
     for i, row in comparison_df.iterrows():
         print(
             f"{row['Model']} -> "
